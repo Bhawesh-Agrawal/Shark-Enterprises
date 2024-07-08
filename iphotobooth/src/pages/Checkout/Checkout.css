@@ -1,0 +1,161 @@
+.Checkout-heading{
+    font-size: 30px;
+    margin-top: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+.form-order{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 40px;
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+}
+
+.cust-name{
+    margin-top: 30px;
+}
+
+.cust-name input{
+    width: 43.5%;
+    margin-right: 10px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.cust-phoneno{
+    margin-top: 10px;
+}
+
+.cust-phoneno input{
+    width: 89%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.cust-email{
+    margin-top: 10px;
+}
+
+.cust-email input{
+    width: 89%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.cust-address{
+    margin-top: 10px;
+}
+
+.cust-address input{
+    width: 43.5%;
+    margin-right: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.order-details{
+    position: absolute;
+    width: 30%;
+    right: 15%;
+    margin-top: 30px;
+}
+
+.form button{
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(0, 174, 255);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.form button:hover{
+    cursor: pointer;
+}
+
+* input{
+    border: none;
+    background-color: rgb(241, 241, 241);
+    
+}
+
+@media(max-width : 1100px ){
+    .cust-name input{
+        width: 40%;
+    }
+
+    .cust-address input{
+        width: 40%;
+    }
+}
+
+@media(max-width : 1000px ){
+    .cust-name input{
+        width: 39%;
+    }
+
+    .cust-address input{
+        width: 39%;
+    }
+
+    .form-order{
+        grid-template-columns: 1fr 0fr;
+    }
+
+    .order-details{
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        left: 20px;
+    }
+}
+
+@media(max-width : 770px ){
+    .cust-name input{
+        width: 36%;
+    }
+
+    .cust-address input{
+        width: 36%;
+    }
+
+    .cust-phoneno input{
+        width: 85%;
+    }
+
+    .cust-email input{
+        width: 85%;
+    }
+
+    .form-order{
+        grid-template-columns: 1fr 0fr;
+    }
+
+    .order-details{
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        left: 20px;
+    }
+}
+
+@media(max-width : 500px ){
+    .form-order{
+        grid-template-columns: 1fr 0fr;
+    }
+
+    .order-details{
+        position: relative;
+        width: 100%;
+        bottom: 0;
+        left: 20px;
+    }
+}

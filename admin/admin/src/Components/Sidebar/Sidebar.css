@@ -1,0 +1,99 @@
+.Sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 18%;
+    min-height: 100vh;
+    border-right: 1px solid grey;
+}
+
+.Sidebar-content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 40px 0px;
+    margin-top: 50px;
+    justify-content: center;
+}
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.Add-item{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Add-item img{
+    width: 30px;
+}
+
+.Add-item p{
+    font-size: 20px;
+}
+
+.List-item{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.List-item img{
+    width: 30px;
+}
+
+.List-item p{
+    font-size: 20px;
+}
+
+.Order-list{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Order-list img{
+    width: 30px;
+}
+
+.Order-list p{
+    font-size: 20px;
+}
+
+.active{
+    display: inline-block;
+    flex-direction: row;
+    background-color: green;
+    padding: 6px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+@media(max-width:900px){
+    .Add-item p,.List-item p,.Order-list p{
+        display: none;
+    }
+}
+
+@media(max-width:390px){
+    .Add-item img,.List-item img,.Order-list img{
+        width: 20px;
+    }
+
+    .active{
+        margin-right: 2px;
+        padding: 3px;
+    }
+}

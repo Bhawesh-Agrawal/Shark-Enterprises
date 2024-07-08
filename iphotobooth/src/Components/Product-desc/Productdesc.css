@@ -1,0 +1,165 @@
+.prod{
+    display: flex;
+    flex-direction: row;
+    top: 150px;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.right-column{
+    background-color:rgba(241, 241, 241, 0.737) ;
+    border-radius: 20px;
+    min-width: 500px;
+}
+
+.prod-img{
+    position: relative;
+    width: 480px;
+    height: 500px;
+}
+
+
+.prod-img img{
+    position: absolute;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    image-rendering:optimizeQuality crisp-edges;
+}
+
+.prod-name{
+    position: relative;
+    top: 15%;
+    left: 10%;
+    font-size: 20px;
+}
+
+.prod-desc{
+    position: relative;
+    top: 20%;
+    left: 10%;
+    font-size: 15px;
+    max-width: 80%;
+}
+
+.prod-price{
+    position: relative;
+    top: 25%;
+    left: 10%;  
+    font-size: 25px; 
+    color: rgb(102, 43, 43);
+}
+
+.add1{
+    position: relative;
+    top: 30%;
+    left: 10%;
+    height: 20px;
+    width: 20px;
+}
+
+.product_item_counter{
+    position: relative;
+    top: 30%;
+    left: 10%;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.add{
+    height: 20px;
+    width: 20px;
+}
+
+.minus{
+    height: 20px;
+    width: 20px;
+}
+
+.Addtocart{
+    position: relative;
+    top: 35%;
+    left: 10%;
+    background-color: rgb(52, 129, 223);
+    color: white;
+    font-size: 15px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 20px;
+}
+
+@media(max-width:1300px){
+    .right-column{
+        min-width: 400px;
+    }
+}
+
+@media(max-width:1160px){
+    .right-column{
+        min-width: 300px;
+    }
+
+    
+    .prod-img{
+        width: 280px;
+        height: 300px;
+    }
+}
+
+@media(max-width:1100px) {
+
+    .prod-name{
+        font-size: 15px;
+    }
+
+    .prod-desc{
+        font-size: 10px;
+    }
+    
+    .prod-price{
+        font-size: 20px;
+    }
+
+    .right-column{
+        min-width: 250px;
+    }
+}
+
+
+@media(max-width:500px){
+    .prod{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .right-column{
+        min-height: 300px;
+    }
+
+    .prod-img{
+        width: 480px;
+        height: 500px;
+    }
+
+    .prod-name{
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+    .prod-desc{
+        font-size: 18px;
+        margin-top: 20px;
+    }
+    
+    .prod-price{
+        font-size: 30px;
+        margin-top: 20px;
+    }
+
+    
+}
+

@@ -1,0 +1,20 @@
+.product_display{
+    margin-top: 50px;
+}
+
+.product_display h2{
+    font-size: 30px;
+    color: rgba(155, 32, 32,0.7);
+}
+
+.product-display-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    row-gap: 50px;
+    column-gap: 25px;
+    transition: .3s;
+    animation: fade-in 3s;
+}

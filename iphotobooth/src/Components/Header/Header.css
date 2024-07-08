@@ -1,0 +1,37 @@
+
+.banner1{
+    position: relative;
+    display: flex;
+    object-fit: cover;
+    justify-content: center;
+    width: 100%;
+}
+
+.banner1-img img{
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: contain;
+    margin-top: 20px;
+}
+
+.banner1 p{
+    position: absolute;
+    font-size: 30px;
+    top: 12%;
+    left: 5%;
+    animation: drop-in 3s;
+}
+
+.banner1 span{
+    font-weight: 600;
+    color:tomato;
+    text-decoration: underline wavy;
+    animation: drop-in 3s;
+}
+
+@media(max-width:770px){
+    .banner1{
+        margin-top: 15%;
+    }
+}

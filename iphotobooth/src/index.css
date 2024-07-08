@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; 
+}
+
+
+body {
+  min-width: 100vh; 
+  width: 100%; 
+  font-family: Arial, sans-serif; 
+  background-color: #f0f0f0; 
+}
+
+
+.app {
+  width: 80%; 
+  margin: auto;
+  padding: 0 20px;
+  padding-bottom: 20px;
+  background-color: #fff; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+@keyframes drop-in{
+  0%{
+    opacity: 0;
+    top:0%
+  }
+  100%{
+    opacity: 1;
+    top: 12%;
+  }
+}
+
+@keyframes fade-in{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+/*For smaller Screen*/
+
+@media (max-width: 768px) {
+  .app {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+}
