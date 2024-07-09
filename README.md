@@ -11,3 +11,5 @@ The website contains the following features:
 6) Database
 7) Backend
 8) Admin Panel
+
+My Admin link :- https://admin-80oj.onrender.com
