@@ -59,6 +59,7 @@ const Checkout = () => {
     let response = await axios.post(url+"/api/order/placeorder",orderData,{headers:{token}});
     if (response.data.success) {
       toast(response.data.message)
+      navigate('/order')
     }else{
       toast.error(response.data.message)
     }
