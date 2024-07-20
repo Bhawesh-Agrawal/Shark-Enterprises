@@ -106,11 +106,13 @@ const Navbar = ({ setshowLogin }) => {
                                 {Array.isArray(list) && list.map((item, index) => (
                                     <div key={index}>
                                         <div className="profile-img">
-                                            {item.image === "" ? <img src={assets.user} alt="user" /> : <img src={`${url}/profileimg/${item.image}`} alt="" />}
+                                            {item.image === "" ? <img src={assets.user} alt="user" /> : <img src={`${url}/profileimg/${item.image}`} alt="" id='profile-img-img'/>}
                                         </div>
                                         <div className="hover-board">
                                             <ul>
-                                                <li>Profile</li>
+                                            <Link to={`/Profile`}>
+                                                    <li>Profile</li>
+                                                </Link>
                                                 <Link to={`/Order`}>
                                                     <li>Order</li>
                                                 </Link>

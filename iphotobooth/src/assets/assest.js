@@ -37,6 +37,10 @@ import user from './user.png'
 
 import shopping from './shopping.png'
 
+import pencil from "./pencil.png"
+
+import transparent from "./transparent.png"
+
 
 export const assets = {
     logo,
@@ -64,7 +68,9 @@ export const assets = {
     cart,
     dustbin,
     user,
-    shopping
+    shopping,
+    pencil,
+    transparent
 }
 
 export const brand_logo = [

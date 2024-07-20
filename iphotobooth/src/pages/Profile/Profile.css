@@ -1,0 +1,221 @@
+.profile-container{
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    margin-top: 50px;
+}
+
+.profile-img-cont{
+    display: flex;
+    width: 50%;
+    margin-left: 70px;
+    position: relative;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+.profile-img-cont img{
+    width: 100%;
+    height: auto;
+}
+
+.edit{
+    display: none;
+    position: absolute;
+    height: 10%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+}
+
+.edit img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 0 !important;
+}
+
+.profile-img-cont img:hover{
+    opacity: 0.4;
+}
+
+.profile-img-cont img:hover + .edit{
+    display: block;
+}
+
+.profile-detail{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.name{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 5px;
+    margin-left: 40px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.username{
+    margin-left: 40px;
+    font-size: 20px;
+}
+
+.email{
+    margin-left: 40px;
+    font-size: 20px;
+}
+
+span{
+    color: rgb(51, 51, 51);
+}
+
+hr{
+    width: 50%;
+}
+
+.change-password{
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.change-password button{
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(0, 136, 255);
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.change-password button:hover{
+    box-shadow: 0px 0px 10px black;
+}
+
+
+.back{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    left: 0;
+    top: 0;
+}
+
+.back .close{
+    position: absolute;
+    right: 50px;
+    top: 30px;
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+.change-profile{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 300px;
+    height: 300px;
+    background-color: rgba(0,0,0,0.3);
+    filter: none    !important;
+}
+
+.prof-container{
+    position: relative;
+    width: 300px;
+    height: 250px;
+    border: 2px dotted white;
+
+}
+
+.prof-container img{
+    position: relative;
+    height: 95%;
+    width: 95%;
+    padding-left: 5%;
+    padding-top: 5%;
+    object-fit: cover;
+}
+
+.prof-container p{
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25px;
+    white-space: nowrap;
+    z-index: -1;
+}
+
+.button{
+    position: absolute;
+    right: 10px;
+    padding: 5px;
+}
+
+.button button{
+    padding: 10px 20px;
+    background-color: rgb(0, 149, 255);
+    border: none;
+    color:white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.button button:hover{
+    box-shadow: 0px 0px 10px black;
+}
+
+.input-file{
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.password-popup{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    height: 300px;
+    width: 300px;
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+}
+
+.password-popup input{
+    margin-top: 15px;
+    margin-left: 18px;
+    padding: 13px 50px;
+}
+
+.password-popup input::placeholder{
+    font-size: 15px;
+}
+
+@media(max-width:770px){
+    .profile-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    hr{
+        margin-left: 40px;
+    }
+
+    .back{
+        width: 200%;
+    }
+}

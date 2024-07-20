@@ -1,6 +1,8 @@
 import userModel from "../models/userModel.js";
 import jwt from 'jsonwebtoken'
 import validator from 'validator'
+import fs from "fs"
+import { Console } from "console";
 
 //login user 
 const loginUser  = async (req,res)=>{
@@ -86,5 +88,38 @@ const profile = async (req,res)=>{
     
 }
 
+const updateUser = async (req, res) => {
+    const user = await userModel.findById(req.boy.userId)
+    const image_filename = req.file.filename
+    if(image_filename){
+        fs.unlink(`profilepic/${user.image}`,()=>{})
+    }
+};
 
-export {loginUser,registerUser,user_list,profile}
+const updatepass = async (req, res) => {
+    try {
+        const user = await userModel.findById(req.body.userId);
+        console.log(req.body)
+        if (!user) {
+            return res.json({ success: false, message: "User not found" });
+        }
+
+        if (!req.body.password) {
+            return res.json({ success: false, message: "Insert a password" });
+        }
+
+        const newpassword = req.body.password;
+        await userModel.findByIdAndUpdate(req.body.userId, { password: newpassword });
+        return res.json({ success: true, message: "Password updated successfully" });
+
+    } catch (error) {
+        console.log(error);
+        return res.json({ success: false, message: error.message });
+    }
+};
+
+
+
+
+
+export {loginUser,registerUser,user_list,profile,updateUser,updatepass}

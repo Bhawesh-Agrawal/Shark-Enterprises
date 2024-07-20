@@ -1,5 +1,5 @@
 import express from 'express'
-import { loginUser,registerUser, user_list,profile } from '../controllers/userController.js'
+import { loginUser,registerUser, user_list,profile ,updateUser,updatepass} from '../controllers/userController.js'
 import multer from 'multer'
 import authmiddleware from '../middle/auth.js'
 
@@ -19,5 +19,9 @@ userrouter.post("/register",upload.single("image"),registerUser)
 userrouter.post("/login",loginUser)
 userrouter.get("/userlist",authmiddleware,user_list)
 userrouter.get("/profile",authmiddleware,profile)
+userrouter.patch("/updateUser",authmiddleware,upload.single("image"),updateUser)
+userrouter.patch("/updatePass",authmiddleware,updatepass)
+
+
 
 export default userrouter
