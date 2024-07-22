@@ -89,17 +89,29 @@ const profile = async (req,res)=>{
 }
 
 const updateUser = async (req, res) => {
-    const user = await userModel.findById(req.boy.userId)
-    const image_filename = req.file.filename
-    if(image_filename){
-        fs.unlink(`profilepic/${user.image}`,()=>{})
-    }
+    try{
+        const {email} = req.body
+        const user = await userModel.findOne({email})
+        let image_filename;
+        if (!user){
+            return res.json({success:false,message:"User not found"})
+        }
+        else{
+            fs.unlink(`/Profiepic/${user.image}`,()=>{})
+            image_filename = req.file.filename
+            user.image = image_filename
+            user.save()
+            return res.json({success:true,message:"Profile Image Updated"})
+        }
+    }catch(error){
+        console.log(error);
+        res.json({ success: false, message: "Error"})
+    }   
 };
 
 const updatepass = async (req, res) => {
     try {
         const user = await userModel.findById(req.body.userId);
-        console.log(req.body)
         if (!user) {
             return res.json({ success: false, message: "User not found" });
         }

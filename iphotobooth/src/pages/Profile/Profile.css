@@ -137,11 +137,9 @@ hr{
 
 .prof-container img{
     position: relative;
-    height: 95%;
-    width: 95%;
-    padding-left: 5%;
-    padding-top: 5%;
-    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .prof-container p{

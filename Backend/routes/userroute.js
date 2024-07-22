@@ -19,7 +19,7 @@ userrouter.post("/register",upload.single("image"),registerUser)
 userrouter.post("/login",loginUser)
 userrouter.get("/userlist",authmiddleware,user_list)
 userrouter.get("/profile",authmiddleware,profile)
-userrouter.patch("/updateUser",authmiddleware,upload.single("image"),updateUser)
+userrouter.patch("/updateUser",upload.single("image"),updateUser)
 userrouter.patch("/updatePass",authmiddleware,updatepass)
 
 

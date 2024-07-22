@@ -38,17 +38,17 @@ const Profile = () => {
         }
 
         const formData = new FormData()
+
         formData.append("image",file)
-        
-        const response = await axios.patch(`${url}/api/user/updateUser`, formData, {
-            headers: {token}
-        });
+        formData.append("email",list[0].email)
+
+        const response = await axios.patch(`${url}/api/user/updateUser`, formData);
         if (response.data.success) {
-          alert("Image updated successfully");
+          alert(response.data.message);
           setOpen(false);
           setImage(false);
         } else {
-          alert("Imange not Uploaded");
+          alert(response.data.message);
           setOpen(false);
           setImage(false);
         }
@@ -71,6 +71,7 @@ const Profile = () => {
         const response = await axios.patch(`${url}/api/user/updatePass`,{"password":data.password},{headers : {token} })
         if (response.data.success) {
             alert(response.data.message)
+            setpass(false);
         } else {
             alert(response.data.message)
         }
