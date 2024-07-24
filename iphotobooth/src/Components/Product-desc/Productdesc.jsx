@@ -6,7 +6,7 @@ import './Productdesc.css'
 
 const Productdesc = () => {
   const { id } = useParams();
-  const { cartItems, addtocart, removecartitems, productDetail, url } = useContext(StoreContext);
+  const { cartItems, addtocart, removecartItems, productDetail, url } = useContext(StoreContext);
 
   return (
     <div>
@@ -33,7 +33,7 @@ const Productdesc = () => {
                   <div className="product_item_counter">
                     <img
                       className="add"
-                      onClick={() => removecartitems(id)}
+                      onClick={() => removecartItems(id)}
                       src={assets.minus}
                       alt="minus"
                     />
