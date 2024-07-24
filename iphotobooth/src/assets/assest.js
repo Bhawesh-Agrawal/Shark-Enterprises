@@ -41,6 +41,7 @@ import pencil from "./pencil.png"
 
 import transparent from "./transparent.png"
 
+import catalouge from "./SHARK CATALOUGE.pdf"
 
 export const assets = {
     logo,
@@ -70,7 +71,8 @@ export const assets = {
     user,
     shopping,
     pencil,
-    transparent
+    transparent,
+    catalouge
 }
 
 export const brand_logo = [

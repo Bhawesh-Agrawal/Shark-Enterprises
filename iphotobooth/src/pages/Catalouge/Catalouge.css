@@ -1,7 +1,7 @@
-.pdf-reader{
+#PDF{
     border: 5px solid rgba(0,0,0,0.3);
     height: 900px;
-    width: 80%;
+    width: 1080px;
     margin-top: 80px;
     justify-content: center;
     align-items: center;
