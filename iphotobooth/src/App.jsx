@@ -12,6 +12,7 @@ import Categories from './Components/Categories/Categories'
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Profile from './pages/Profile/Profile'
+import Catalouge from './pages/Catalouge/Catalouge'
 
 const App = () => {
 
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='/Categories' element={<Categories></Categories>}></Route>
           <Route path='/Order' element={<Order></Order>}></Route>
           <Route path='/Profile' element={<Profile></Profile>}></Route>
+          <Route path='/Catalouge' element={<Catalouge></Catalouge>}></Route>
         </Routes>
       </div>
       <Footer></Footer>

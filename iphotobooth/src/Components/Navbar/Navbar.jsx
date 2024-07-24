@@ -11,7 +11,7 @@ const Navbar = ({ setshowLogin }) => {
     const { cartItems, url, token, setToken } = useContext(StoreContext);
     const navigate = useNavigate();
 
-    const [list, setList] = useState([]); 
+    const [list, setList] = useState([]);
 
     const handleMenuToggle = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -31,11 +31,11 @@ const Navbar = ({ setshowLogin }) => {
                 setList(response.data.data || []);
             } else {
                 console.error("Error fetching list:", response.data.message);
-                setList([]); 
+                setList([]);
             }
         } catch (error) {
             console.error("Error fetching list", error);
-            setList([]); 
+            setList([]);
         }
     };
 
@@ -53,7 +53,7 @@ const Navbar = ({ setshowLogin }) => {
                         <img src={assets.logo} alt='logo' className='logo'></img>
                     </Link>
                     <div className="mob-profile-img">
-                        {token  && list.length > 0 ?
+                        {token && list.length > 0 ?
                             list.map((item, index) => {
                                 return (
                                     <div key={item._id || index} className="profile-img-box">
@@ -88,7 +88,11 @@ const Navbar = ({ setshowLogin }) => {
                             </Link>
                         </li>
                         <li onClick={() => setMenu("aboutus")} className={menu === "aboutus" ? "active" : ""}>About Us</li>
-                        <li onClick={() => setMenu("contactus")} className={menu === "contactus" ? "active" : ""}>Contact Us</li>
+                        <li className={menu === "catalouge" ? "active" : ""}>
+                            <Link to={`/Catalouge`} onClick={() => setMenu("catalouge")}>
+                                Catalouge
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="login">
@@ -106,11 +110,11 @@ const Navbar = ({ setshowLogin }) => {
                                 {Array.isArray(list) && list.map((item, index) => (
                                     <div key={index}>
                                         <div className="profile-img">
-                                            {item.image === "" ? <img src={assets.user} alt="user" /> : <img src={`${url}/profileimg/${item.image}`} alt="" id='profile-img-img'/>}
+                                            {item.image === "" ? <img src={assets.user} alt="user" /> : <img src={`${url}/profileimg/${item.image}`} alt="" id='profile-img-img' />}
                                         </div>
                                         <div className="hover-board">
                                             <ul>
-                                            <Link to={`/Profile`}>
+                                                <Link to={`/Profile`}>
                                                     <li>Profile</li>
                                                 </Link>
                                                 <Link to={`/Order`}>

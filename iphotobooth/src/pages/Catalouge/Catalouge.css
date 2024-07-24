@@ -1,0 +1,23 @@
+.pdf-reader{
+    border: 5px solid rgba(0,0,0,0.3);
+    height: 900px;
+    width: 80%;
+    margin-top: 80px;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    display: flex;
+}
+.div-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header-1{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    margin-top: 20px;
+}
