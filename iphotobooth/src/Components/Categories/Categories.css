@@ -49,7 +49,7 @@
 }
 
 .main-box{
-    width: 80%;;
+    width: 80%;
 }
 
 .Categories_list{
@@ -62,10 +62,6 @@
     column-gap: 25px;
     transition: .3s;
     animation: fade-in 3s;
-}
-
-.Categories_list hr{
-    width: 100%;
 }
 
 .Category-title h2{

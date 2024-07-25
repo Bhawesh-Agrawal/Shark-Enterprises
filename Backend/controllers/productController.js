@@ -29,7 +29,17 @@ const addProduct  = async (req, res)=>{
 
 const product_list = async (req,res)=>{
     try {
-        const products = await productModel.find({});
+        let queryStr = JSON.stringify(req.query)
+        queryStr = queryStr.replace(/\b(gte|gt|lt|lte)\b/g,(match)=> `$${match}`)
+        const queryObj = JSON.parse(queryStr)
+        if (req.query.search){
+            queryObj.name = {$regex: req.query.search, $options: 'i'}
+        }
+        if (queryObj.search) {
+            delete queryObj.search;
+        }
+        console.log(queryObj)
+        const products = await productModel.find(queryObj);
         res.json({success:true,data:products})
     } catch (error) {
         console.log(error)
