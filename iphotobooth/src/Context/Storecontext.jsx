@@ -7,8 +7,8 @@ const StoreContextProvider = (props) => {
   const [token, setToken] = useState("");
   const [productDetail, setProductDetail] = useState([]);
   const [cartItems, setCartItems] = useState({});
-  //const url = "https://shark-enterprise-backend.onrender.com";
-  const url = "http://localhost:4000"
+  const url = "https://shark-enterprise-backend.onrender.com";
+  //const url = "http://localhost:4000"
 
   const addtocart = async (itemId) => {
     
