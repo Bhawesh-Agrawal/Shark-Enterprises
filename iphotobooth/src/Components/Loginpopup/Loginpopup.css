@@ -1,237 +1,198 @@
 @import url('https://fonts.googleapis.com/css2?family=Margarine&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
 
-.Loginpopup {
+.Loginpopup{
     position: fixed;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 200;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(24, 23, 23, 0.4);
+    backdrop-filter: blur(5px);
+    z-index: 1  ;
 }
 
-.login-popup-title {
-    font-family: 'Margarine', cursive;
-    font-size: 2rem;
-    text-align: center;
-    color: white;
-    transition: all 0.3s ease-in-out;
-    margin-bottom: 1rem;
-    padding-right: 25px;
-}
-
-.cross-button {
-    position: absolute;
-    top: 2%;
-    right: 2%;
+.edit-img{
     z-index: 1000;
 }
-
-.cross-button img {
-    height: 20px;
-    width: 20px;
-    transition: all 0.3s ease-in-out;
-}
-
-.cross-button img:hover {
-    cursor: pointer;
-    transform: rotate(90deg);
-}
-
-.sign-in, .login-form {
-    background-color: white;
-    border-radius: 20px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-}
-
-.sign-in {
-    width: 80%;
-    max-width: 400px;
-}
-
-.sign-in-input input {
-    margin-top: 15px;
-    width: 100%;
-    padding: 15px;
-    border-radius: 20px;
-    border: none;
-    background-color: rgba(235, 233, 233, 0.5);
-    box-shadow: 0px 0px 2px rgb(143, 21, 21);
-    text-align: center;
-    font-size: 1rem;
-    transition: all 0.3s ease-in-out;
-}
-
-.sign-in-input input:focus {
-    outline: none;
-    box-shadow: 0px 0px 5px rgb(143, 21, 21);
-}
-
-.sign-in-input p {
-    font-size: 1.2rem;
-    padding-top: 15px;
-    font-family: 'Caveat', cursive;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-}
-
-.sign-in-input span {
-    color: red;
-    cursor: pointer;
-}
-
-.sign-in-input span:hover {
-    text-decoration: underline wavy;
-}
-
-.sign-in-input button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    border-radius: 20px;
-    border: none;
-    width: 100%;
-    font-size: 1rem;
-    background-color: rgba(30, 196, 233);
-    opacity: 0.6;
-    color: white;
-    box-shadow: 0px 0px 5px rgb(55, 217, 253);
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-.sign-in-input button:hover {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-.login-form {
-    width: 90%;
-    max-width: 500px;
-}
-
-.login-form-input {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-form-input input {
-    margin-top: 10px;
-    width: 100%;
-    padding: 15px;
-    border-radius: 20px;
-    border: none;
-    background-color: rgba(235, 233, 233, 0.5);
-    box-shadow: 0px 0px 2px rgb(143, 21, 21);
-    text-align: center;
-    font-size: 1rem;
-    transition: all 0.3s ease-in-out;
-}
-
-.login-form-input input:focus {
-    outline: none;
-    box-shadow: 0px 0px 5px rgb(143, 21, 21);
-}
-
-.login-form-input label {
-    display: flex;
-    align-items: center;
-    margin-top: 15px;
-    font-size: 0.9rem;
-}
-
-.login-form-input input[type="checkbox"] {
-    width: auto;
-    margin-right: 10px;
-}
-
-.login-form-input p {
-    font-size: 1.2rem;
-    padding-top: 10px;
-    font-family: 'Caveat', cursive;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-}
-
-.login-form-input span {
-    color: red;
-    cursor: pointer;
-}
-
-.login-form-input span:hover {
-    text-decoration: underline wavy;
-}
-
-.login-form-input button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    border-radius: 20px;
-    border: none;
-    width: 100%;
-    font-size: 1rem;
-    background-color: rgba(30, 196, 233);
-    opacity: 0.6;
-    color: white;
-    box-shadow: 0px 0px 5px rgb(55, 217, 253);
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-.login-form-input button:hover {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-.profile-upload {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+.cross-button{
     position: absolute;
-    left: 49%;
-    transform: translateX(-50%);
-    margin-bottom: 1rem;
+    right: 5%;
+    top: 5%;
+    cursor: pointer;
 }
 
-.profile-upload img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: all 0.3s ease-in-out;
+.cross-button img{
+    height: 30px;
 }
 
-.profile-upload:hover img {
-    transform: scale(1.1);
+.sign-in{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 25%;
+    height: 50%;
 }
 
-.login-text-area {
-    margin-top: 100px;
-    width: 100%;
+.login-popup-title{
+    font-size: 25px;
+    color: #333;
+    margin-top: 30px;
     text-align: center;
 }
 
-@media (max-width: 600px) {
-    .sign-in, .login-form {
-        width: 90%;
-    }
+.sign-in-input{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
 
-    .login-popup-title {
-        font-size: 1.5rem;
-    }
+.sign-in-input input{
+    width: 80%;
+    margin-top: 20px;
+    padding: 15px;
+    margin-left: 10%;
+}
 
-    .sign-in-input p, .login-form-input p {
-        font-size: 1rem;
-    }
+.sign-in-input input[type="email"], .sign-in-input input[type="password"]{
+    font-size: 1.2rem;
+}
+
+.sign-in-input input::placeholder{
+    font-size: 1.2rem;
+}
+
+.sign-in-input button{
+    width: 80%;
+    margin-top: 20px;
+    padding: 15px;
+    margin-left: 10%;
+    background-color: rgb(247, 32, 32);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 1.2rem;
+}
+
+.sign-in-input p{
+    text-align: right;
+    padding-right: 10%;
+    margin-top: 5px;
+}
+
+.sign-in-input p span{
+    color: rgb(247, 32, 32);
+}
+
+.sign-in-input p span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-form{
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 30%;
+    height: 85%;
+}
+
+.profile-upload{
+    margin-top: 25px;
+}
+.profile-upload img{
+    width: 18%;
+    margin-left: 41%;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.login-text-area{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.name-area{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.name-area input{
+    width: 45%;
+    margin-left: 0 !important;
+}
+
+#lastname{
+    margin-left: 10px !important;
+}
+
+.login-text-area input{
+    width: 80%;
+    margin-top: 20px;
+    padding: 15px;
+    margin-left: 10%;
+}
+
+.login-text-area input[type="text"], .login-text-area input[type="password"], .login-text-area input[type="email"]{
+    font-size: 1.2rem;
+}
+
+.login-text-area input::placeholder{
+    font-size: 1.2rem;
+}
+
+.checkbox{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.checkbox input{
+    width: 5% !important;
+    margin-left: 0% !important;
+    padding-left: 0% !important;
+    padding: 0px !important;
+}
+
+.checkbox label{
+    font-size: 1rem;
+}
+
+.login-text-area p{
+    text-align: right;
+    padding-right: 10%;
+    margin-top: 5px;
+}
+
+.login-text-area p span{
+    color: rgb(247, 32, 32);    
+}
+
+.login-text-area p span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.login-text-area button{
+    width: 80%;
+    margin-top: 20px;
+    padding: 15px;
+    margin-left: 10%;
+    background-color: rgb(247, 32, 32);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 1.2rem;
 }

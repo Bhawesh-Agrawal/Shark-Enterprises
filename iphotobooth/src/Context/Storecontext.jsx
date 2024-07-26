@@ -8,6 +8,7 @@ const StoreContextProvider = (props) => {
   const [productDetail, setProductDetail] = useState([]);
   const [cartItems, setCartItems] = useState({});
   const url = "https://shark-enterprise-backend.onrender.com";
+  const [imgAfterCrop, setImgAfterCrop] =useState("")
   //const url = "http://localhost:4000"
 
   const addtocart = async (itemId) => {
@@ -50,7 +51,55 @@ const StoreContextProvider = (props) => {
   const loadData = async (token) => {
     const response = await axios.get(url + "/api/cart/getcart",{ headers: {token}});
     setCartItems(response.data.cartData);
-  };  
+  };
+
+  const onCropDone = async (imgCroppedArea, image) => {
+    try {
+      const blob_1 = await new Promise((resolve, reject) => {
+        const canvasEle = document.createElement("canvas");
+        canvasEle.width = imgCroppedArea.width;
+        canvasEle.height = imgCroppedArea.height;
+
+        const context = canvasEle.getContext("2d");
+
+        let imageObj1 = new Image();
+        imageObj1.src = image;
+        imageObj1.onload = function () {
+          context.drawImage(
+            imageObj1,
+            imgCroppedArea.x,
+            imgCroppedArea.y,
+            imgCroppedArea.width,
+            imgCroppedArea.height,
+            0,
+            0,
+            imgCroppedArea.width,
+            imgCroppedArea.height
+          );
+
+          canvasEle.toBlob((blob) => {
+            if (!blob) {
+              console.error('Canvas is empty');
+              reject(new Error('Canvas is empty'));
+              return;
+            }
+            blob.name = 'cropped.jpg';
+            resolve(blob);
+          }, 'image/jpeg');
+        };
+        imageObj1.onerror = () => {
+          reject(new Error('Image load error'));
+        };
+      });
+      setImgAfterCrop(blob_1);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const onCropCancel = ()=>{
+    setImage("")
+  }
 
   //console.log(cartItems)
 
@@ -80,6 +129,10 @@ const StoreContextProvider = (props) => {
     url,
     token,
     setToken,
+    onCropDone,
+    onCropCancel,
+    imgAfterCrop,
+    setImgAfterCrop
   };
 
   return (

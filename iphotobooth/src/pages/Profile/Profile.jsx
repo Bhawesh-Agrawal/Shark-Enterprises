@@ -3,10 +3,11 @@ import { StoreContext } from '../../Context/Storecontext';
 import axios from "axios"
 import { assets } from '../../assets/assest';
 import "./Profile.css"
+import ImageCropper from '../../Components/ImageCropper/ImageCropper';
 
 const Profile = () => {
 
-    const { url, token } = useContext(StoreContext)
+    const { url, token , setImgAfterCrop, imgAfterCrop, onCropDone, onCropCancel} = useContext(StoreContext)
     const [list, setList] = useState([]);
     const [open, setOpen] = useState(false)
     const [image, setImage] = useState(false)
@@ -31,26 +32,27 @@ const Profile = () => {
 
     const handleImageUpload = async (event) => {
         event.preventDefault();
-        const file = image; // Get the selected file from the state
+        const file = imgAfterCrop; // Get the selected file from the state
         if (!file) {
-          alert("Please select an image");
-          return;
+            alert("Please select an image");
+            return;
         }
 
         const formData = new FormData()
 
-        formData.append("image",file)
-        formData.append("email",list[0].email)
+        formData.append("image", imgAfterCrop)
+        formData.append("email", list[0].email)
 
         const response = await axios.patch(`${url}/api/user/updateUser`, formData);
         if (response.data.success) {
-          alert(response.data.message);
-          setOpen(false);
-          setImage(false);
+            alert(response.data.message);
+            setOpen(false);
+            setImage(false);
+            setImgAfterCrop("")
         } else {
-          alert(response.data.message);
-          setOpen(false);
-          setImage(false);
+            alert(response.data.message);
+            setOpen(false);
+            setImage(false);
         }
     };
 
@@ -64,11 +66,11 @@ const Profile = () => {
             alert("New password cannot be the same as the old password");
             return;
         }
-        if (data.password!== data.confirmpassword) {
+        if (data.password !== data.confirmpassword) {
             alert("New password and confirm password do not match");
             return;
         }
-        const response = await axios.patch(`${url}/api/user/updatePass`,{"password":data.password},{headers : {token} })
+        const response = await axios.patch(`${url}/api/user/updatePass`, { "password": data.password }, { headers: { token } })
         if (response.data.success) {
             alert(response.data.message)
             setpass(false);
@@ -99,7 +101,9 @@ const Profile = () => {
         }
     };
 
-
+    const setimage = ()=>{
+        setImage(false)
+    }
 
     return (
         <div className="profile-container">
@@ -118,8 +122,11 @@ const Profile = () => {
                                 <div className="change-profile">
                                     <form onSubmit={handleImageUpload}>
                                         <div className="prof-container">
-                                            {image ? <img src={URL.createObjectURL(image)} alt="" /> : ""}
-                                            <input type='file' onChange={(e) => setImage(e.target.files[0])} className='input-file' required></input>
+                                            {imgAfterCrop ? <img src={URL.createObjectURL(imgAfterCrop)} alt="" /> : ""}
+                                            <input type='file' onChange={(e) => setImage(e.target.files[0])} className='input-file' disabled={image} required></input>
+                                            {image ? <div className="edit-img-img">
+                                                <ImageCropper image={URL.createObjectURL(image)} onCropDone={onCropDone} onCropCancel={onCropCancel} setimage={setimage} />
+                                            </div> : <></>}
                                             <p>Upload Picture</p>
                                         </div>
                                         <div className="button">
@@ -149,20 +156,20 @@ const Profile = () => {
                             <div className="change-password">
                                 <button onClick={() => { setpass(true) }}>Change Password</button>
                                 {!pass ? <></> :
-                                        <div className="back">
-                                            <p onClick={() => setpass(false)} className='close'>x</p>
-                                            <div className='password-popup'>
-                                                <form onSubmit={handlePasswordUpdate}>
-                                                    <input name="oldpassword" value={data.oldpassword} onChange={onchangeHandler} type="password" placeholder='Enter Old Password' required />
-                                                    <input name="password" value={data.password} onChange={onchangeHandler} type='password' placeholder='Enter new password' required></input>
-                                                    <input name="confirmpassword" value={data.confirmpassword} onChange={onchangeHandler} type='password' placeholder='Confirm new password' required></input>
-                                                    <div className='button'>
-                                                        <button type='submit'>Submit</button>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                    <div className="back">
+                                        <p onClick={() => setpass(false)} className='close'>x</p>
+                                        <div className='password-popup'>
+                                            <form onSubmit={handlePasswordUpdate}>
+                                                <input name="oldpassword" value={data.oldpassword} onChange={onchangeHandler} type="password" placeholder='Enter Old Password' required />
+                                                <input name="password" value={data.password} onChange={onchangeHandler} type='password' placeholder='Enter new password' required></input>
+                                                <input name="confirmpassword" value={data.confirmpassword} onChange={onchangeHandler} type='password' placeholder='Confirm new password' required></input>
+                                                <div className='button'>
+                                                    <button type='submit'>Submit</button>
+                                                </div>
+                                            </form>
                                         </div>
-                                        }
+                                    </div>
+                                }
                             </div>
                         </div>
                     </>

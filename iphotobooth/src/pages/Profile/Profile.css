@@ -27,6 +27,15 @@
     transform: translate(-50%);
 }
 
+.edit-img-img{
+    position: absolute;
+    width: 200%;
+    height: 300%;
+    left: -50%;
+    top: -50%;
+    z-index: 1000;
+}
+
 .edit img{
     width: 100%;
     height: 100%;
