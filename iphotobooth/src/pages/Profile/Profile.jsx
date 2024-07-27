@@ -7,7 +7,7 @@ import ImageCropper from '../../Components/ImageCropper/ImageCropper';
 
 const Profile = () => {
 
-    const { url, token , setImgAfterCrop, imgAfterCrop, onCropDone, onCropCancel} = useContext(StoreContext)
+    const { url, token, setImgAfterCrop, imgAfterCrop, onCropDone, onCropCancel } = useContext(StoreContext)
     const [list, setList] = useState([]);
     const [open, setOpen] = useState(false)
     const [image, setImage] = useState(false)
@@ -39,8 +39,10 @@ const Profile = () => {
         }
 
         const formData = new FormData()
-
-        formData.append("image", imgAfterCrop)
+        if (imgAfterCrop) {
+            const imgFileData = new File([imgAfterCrop], 'image.jpeg', { type: 'image/jpeg' })
+            formData.append("image", imgFileData);
+        }
         formData.append("email", list[0].email)
 
         const response = await axios.patch(`${url}/api/user/updateUser`, formData);
@@ -101,7 +103,7 @@ const Profile = () => {
         }
     };
 
-    const setimage = ()=>{
+    const setimage = () => {
         setImage(false)
     }
 

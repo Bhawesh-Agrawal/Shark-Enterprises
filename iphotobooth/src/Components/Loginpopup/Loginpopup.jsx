@@ -38,7 +38,8 @@ const Loginpopup = ({ setshowLogin }) => {
             formData.append("name", data.name)
             formData.append("password", data.password)
             if (imgAfterCrop) {
-                formData.append("image", imgAfterCrop);
+                const imgFileData = new File([imgAfterCrop], 'image.jpeg' , {type:'image/jpeg'}) 
+                formData.append("image", imgFileData);
             }
             const response = await axios.post(`${url}/api/user/register`, formData)
             if (response.data.success) {
@@ -98,7 +99,6 @@ const Loginpopup = ({ setshowLogin }) => {
                             <label htmlFor="file-input">
                                 <div className="">
                                     <div className="profile-upload">
-                                        {console.log(imgAfterCrop)}
                                         <img src={imgAfterCrop?URL.createObjectURL(imgAfterCrop):assets.user} alt="user" />
                                     </div>
                                 </div>
