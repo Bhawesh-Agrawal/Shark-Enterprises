@@ -15,7 +15,7 @@ const loginUser  = async (req,res)=>{
 
         const isMatch = user.password
 
-        if (!isMatch) {
+        if (isMatch !== password || !isMatch) {
             return res.json({success:false,message:"Incorrect password"})
         }
 
