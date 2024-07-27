@@ -5,7 +5,6 @@ import authmiddleware from '../middle/auth.js'
 
 
 const Storage = multer.diskStorage({
-    destination:(req,file,cb)=>{cb(null,"Profilepic")},
     filename:(req,file,cb)=>{
         return cb(null,`${Date.now()}${file.originalname}`)
     }
