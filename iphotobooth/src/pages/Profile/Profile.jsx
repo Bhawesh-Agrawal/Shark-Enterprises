@@ -113,7 +113,7 @@ const Profile = () => {
                 return (
                     <>
                         <div onClick={() => (setOpen(true))} className="profile-img-cont">
-                            {item.image === "" ? <img src={assets.user} alt="user" /> : <img src={`${url}/profileimg/${item.image}`} alt="" className='profile-img-1' />}
+                            <img src={item.image.url} className='profile-img-1' />
                             <div className="edit">
                                 <img src={assets.pencil} alt="" />
                             </div>

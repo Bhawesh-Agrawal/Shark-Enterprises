@@ -58,7 +58,7 @@ const Navbar = ({ setshowLogin }) => {
                                 return (
                                     <div key={item._id || index} className="profile-img-box">
                                         <div className="profile-image">
-                                            {item.image === "" ? <img src={assets.user} alt="user" /> : <img src={`${url}/profileimg/${item.image}`} alt="" />}
+                                             <img src={item.image.url} alt="user" />
                                         </div>
                                         <div className="hover-board-mob">
                                             <ul>
@@ -110,7 +110,7 @@ const Navbar = ({ setshowLogin }) => {
                                 {Array.isArray(list) && list.map((item, index) => (
                                     <div key={index}>
                                         <div className="profile-img">
-                                            {item.image === "" ? <img src={assets.user} alt="user" /> : <img src={`${url}/profileimg/${item.image}`} alt="" id='profile-img-img' />}
+                                            <img src={item.image.url} alt="" id='profile-img-img' />
                                         </div>
                                         <div className="hover-board">
                                             <ul>
